@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'l10n_ar_import_bill IVA Exento',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0',
     'category': 'Accounting/Localization',
     'summary': 'Extensión para permitir IVA Exento en importación de facturas',
     'description': '''
