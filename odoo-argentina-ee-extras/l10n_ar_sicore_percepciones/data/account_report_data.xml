@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="sicore_percepciones_report" model="account.report">
+            <field name="name">SICORE Percepciones IVA (AR)</field>
+            <field name="root_report_id" ref="account.generic_tax_report"/>
+            <field name="country_id" ref="base.ar"/>
+            <field name="availability_condition">country</field>
+            <field name="filter_date_range" eval="True"/>
+            <field name="filter_multi_company">selector</field>
+            <field name="default_opening_date_filter">previous_month</field>
+            <field name="custom_handler_model_id" ref="model_l10n_ar_sicore_percepciones_handler"/>
+            <field name="column_ids">
+                <record id="sicore_percepciones_column_balance" model="account.report.column">
+                    <field name="name">Percibido</field>
+                    <field name="expression_label">balance</field>
+                    <field name="figure_type">monetary</field>
+                    <field name="sequence">1</field>
+                </record>
+            </field>
+            <field name="line_ids">
+                <record id="sicore_percepciones_line" model="account.report.line">
+                    <field name="name">Percepciones IVA RG 5329</field>
+                    <field name="code">SICORE_PERC_602</field>
+                    <field name="sequence">1</field>
+                    <field name="expression_ids">
+                        <record id="sicore_percepciones_line_balance" model="account.report.expression">
+                            <field name="label">balance</field>
+                            <field name="engine">domain</field>
+                            <field name="formula">[('tax_line_id.l10n_ar_code', '=', '602'), ('tax_line_id.type_tax_use', '=', 'sale')]</field>
+                            <field name="subformula">-sum</field>
+                        </record>
+                    </field>
+                </record>
+            </field>
+        </record>
+
+    </data>
+</odoo>
