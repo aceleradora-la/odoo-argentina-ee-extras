@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Solo name y comment: son los campos que res.groups comparte entre 18.0 y 19.0
+         (en 19.0 category_id pasó a privilege_id). -->
+    <record id="group_arca_reset_draft" model="res.groups">
+        <field name="name">Restablecer a borrador comprobantes validados en ARCA</field>
+        <field name="comment">Permite pasar a borrador facturas, notas de crédito y notas de débito que ya tienen CAE de ARCA, para corregir datos que no se informan a ARCA (cuentas contables, analítica, productos, numeración en Odoo). Cliente, fecha, importes e impuestos se corrigen con nota de crédito o débito.</field>
+    </record>
+</odoo>
